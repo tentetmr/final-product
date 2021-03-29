@@ -46,19 +46,29 @@
             </div>
           <?php }?>
 
-          <form method="POST" action="insert.php" class="post">
-            <div><input type="text" name="restaurantName" placeholder="何をした？" class="form-control mx-auto mb-1" style="width: 90%;"></div>
-            <div><input type="number" name="restaurantCost" min="1" placeholder="何分できた？" class="form-control mx-auto mb-1" style="width: 90%;"></div>
-            <div><textarea name="contents" id="" cols="30" rows="5" placeholder="内容・学び" class="form-control mx-auto mb-1" style="width: 90%;"></textarea></div>
-            <input type="submit" value="投稿" class="btn btn-success" style="width: 70%;">
-          </form>
-        
-          <!-- 投稿表示エリア -->
-          <div class="postContents ">
-          <?php
-          include("select.php");
-          echo $view;
+          <?php 
+            include("select.php");
+            if(!isset($_GET["keyword"])) {
           ?>
+
+            <form method="POST" action="insert.php" class="post">
+              <div><input type="text" name="restaurantName" placeholder="何をした？" class="form-control mx-auto mb-1" style="width: 90%;"></div>
+              <div><input type="number" name="restaurantCost" min="1" placeholder="何分できた？" class="form-control mx-auto mb-1" style="width: 90%;"></div>
+              <div><textarea name="contents" id="" cols="30" rows="5" placeholder="内容・学び" class="form-control mx-auto mb-1" style="width: 90%;"></textarea></div>
+              <input type="submit" value="投稿" class="btn btn-success" style="width: 70%;">
+            </form>
+            <div class="postContents ">
+          <?php 
+            echo $view;          
+          } else{?>
+            <div class="h6">[検索結果]</div>
+          <?php
+            include("select_search.php");
+            echo $search_result;
+          }
+          ?>
+          
+          <!-- 投稿表示エリア -->
           <script>
           let js_array = JSON.parse('<?php echo $php_json;?>');
           let js_arraytime = JSON.parse('<?php echo $php_jsontime;?>');

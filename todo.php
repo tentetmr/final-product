@@ -49,7 +49,7 @@
 </head>
 
 <body class="container">
-    <h2 class="heading">Todo List</h2>
+    <h2 class="heading">Todoリスト</h2>
         <?php if(isset($_GET["error_todo"])) {?>
           <div class="alert alert-danger mx-auto" role="alert" style="width: 80%;">
           <?php
@@ -62,7 +62,7 @@
         <input type="date" name="deadline" class="form-control mx-auto" style="width: 80%;"><br>
         <input type="submit" name="submit" value="Add" class="btn btn-success m-2" style="width: 70%;">
     </form>
-    <h3 class="heading">Current Todos</h3>
+    <h3 class="heading">残タスク</h3>
     <div class="mb-5">
       <table class="table table-striped table-hover">
           <therad>
