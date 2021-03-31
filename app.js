@@ -1,7 +1,8 @@
-let targetProgressValue = 0;
-let targetGoalValue = 0;
-// let js_array = JSON.parse('<?php echo $php_json;?>');
-// console.log(<?php echo $php_json ?>);
+$(document).ready(function () {
+  $('#records-limit').change(function () {
+      $('form').submit();
+  })
+});
 
 var ctx = $("#myChart");
 var Bar = new Chart(ctx, {

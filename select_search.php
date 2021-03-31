@@ -26,7 +26,7 @@ if($search_status==false) {
     $search_result .= "<div class='shadow p-3 mb-5 bg-white rounded'>";
     // 全員表示
     $search_result .= "<span class='fw-bold'>".$result["u_name"]."　</span>";
-    $search_result .= "「".$result["restaurantName"]."」　";
+    $search_result .= "＜".$result["restaurantName"]."＞　";
     $search_result .= $result["restaurantCost"]."分　";
     $search_result .= $result["posted_date"];
     $search_result .= "<div class='m-4'>";

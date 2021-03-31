@@ -1,17 +1,16 @@
-<ul class="col-8 offset-2 my-0 mx-auto d-flex justify-content-between" style="
-  list-style: none;
-  font-size: 12px;
-  ">
-  <li><a href="" class="footerLink link-dark">HOME</a></li>
-  <li><a href="" class="footerLink link-dark">サイトマップ</a></li>
-  <li><a href="" class="footerLink link-dark">プライバシーポリシー</a></li>
-  <li><a href="" class="footerLink link-dark">お問合せ</a></li>
-</ul>
-<p style="
-  font-size: 8px;
-  color: white;
-  text-align: center;
-  ">
-Copyright 2021. Fête gourmande. All rights reserved.
-</p>
+<div class="row">
+  <div class="col-2"></div>
 
+  <div class="col-2">
+    <img src="../img/logo_transparent.png" alt="" class="img-fluid" style="width: 150px;">
+  </div>
+
+  <div class="col-6 mx-auto" style="list-style: none; font-size: 12px; text-align:right; height:150px">
+    <div class="mt-2">
+      <p><a href="member.php" class="link-dark" style="text-decoration: none;">HOME</a></p>
+      <p class="" style="font-size: 8px">Copyright 2021. KotuKotu. All rights reserved.</p>
+    </div>
+
+  <div class="col-2"></div>
+
+</div>

@@ -60,9 +60,8 @@
     <form method="post" action="" class="mb-3">
         <input type="text" name="todo_contents" value="" class="form-control mx-auto" style="width: 80%;" placeholder="Todo"><br>
         <input type="date" name="deadline" class="form-control mx-auto" style="width: 80%;"><br>
-        <input type="submit" name="submit" value="Add" class="btn btn-success m-2" style="width: 70%;">
+        <input type="submit" name="submit" value="追加" class="btn btn-success m-2" style="width: 70%;">
     </form>
-    <h3 class="heading">残タスク</h3>
     <div class="mb-5">
       <table class="table table-striped table-hover">
           <therad>
@@ -90,7 +89,7 @@
                 <td><?= htmlspecialchars($row['deadline']) ?></td>
                 <td>
                     <form method="POST">
-                        <button type="submit" name="delete"  class="btn btn-danger btn-sm">Delete</button>
+                        <button type="submit" name="delete"  class="btn btn-danger btn-sm">Done</button>
                         <input type="hidden" name="id" value="<?= $row['id'] ?>">
                         <input type="hidden" name="delete" value="true">
                     </form>

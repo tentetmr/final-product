@@ -3,11 +3,10 @@ html {
 }
 
 body {
-  font-family: "M PLUS Rounded 1c", 'Nunito', sans-serif;
+  font-family: 'Titillium Web', "M PLUS Rounded 1c", sans-serif;
 }
 
 footer {
-  height: 70px;
   border-top: 1px solid #cdd5e5;
 }
 
@@ -50,21 +49,6 @@ footer {
   border: none;
   border-radius: 5px;
   color: #fff;
-  cursor: pointer;
-}
-
-.registrationForm{
-  display: none;
-}
-.registrationButton {
-  font-weight: 600;
-  appearance: none;
-  outline: none;
-  border: none;
-  background: #fff;
-  color: rgb(101, 202, 228);
-}
-.registrationButton:hover {
   cursor: pointer;
 }
 

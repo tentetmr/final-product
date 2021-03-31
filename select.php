@@ -1,9 +1,34 @@
 <?php
+
 $pdo =  db_connect();
 // 表示の処理
 $user_name = $_SESSION["u_name"];
 
-$stmt = $pdo->prepare("SELECT id, u_name, restaurantName, restaurantCost, contents, DATE_FORMAT (`indate`, '%Y-%m-%d %H:%i') AS `posted_date` FROM sns_contents order by indate DESC");
+// Dynamic limit
+// 三項演算子
+$limit = isset($_SESSION['records-limit']) ? $_SESSION['records-limit'] : 5;
+
+// Get total records
+$sql = $pdo->query("SELECT count(id) AS id FROM sns_contents")->fetchAll();
+$allRecords = $sql[0]['id'];
+  
+// Calculate total pages
+$totalPages = ceil($allRecords / $limit);
+
+$limit = isset($_SESSION['records-limit']) ? $_SESSION['records-limit'] : 5;
+
+// Current pagination page number
+$page = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1;
+
+// Offset
+$paginationStart = ($page - 1) * $limit;
+
+// Limit query
+$stmt = $pdo->prepare("SELECT id, u_name, restaurantName, restaurantCost, contents, DATE_FORMAT (`indate`, '%Y-%m-%d %H:%i') AS `posted_date` FROM sns_contents order by indate DESC LIMIT $paginationStart, $limit");
+
+
+
+// $stmt = $pdo->prepare("SELECT id, u_name, restaurantName, restaurantCost, contents, DATE_FORMAT (`indate`, '%Y-%m-%d %H:%i') AS `posted_date` FROM sns_contents order by indate DESC");
 $status = $stmt->execute();
 
 $graphdata = $pdo->prepare(
@@ -27,7 +52,7 @@ if($status==false) {
     $view .= "<div class='shadow p-3 mb-5 bg-white rounded'>";
     // 全員表示
     $view .= "<span class='fw-bold'>".$result["u_name"]."　</span>";
-    $view .= "「".$result["restaurantName"]."」　";
+    $view .= "＜".$result["restaurantName"]."＞　";
     $view .= $result["restaurantCost"]."分　";
     $view .= $result["posted_date"];
     $view .= "<div class='m-4'>";
