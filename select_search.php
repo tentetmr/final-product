@@ -6,9 +6,9 @@ $user_name = $_SESSION["u_name"];
 
 
 $search_sql = $pdo->prepare(
-  "SELECT id, u_name, restaurantName, restaurantCost, contents, DATE_FORMAT (`indate`, '%Y-%m-%d %H:%i') AS `posted_date` 
+  "SELECT id, u_name, study_theme, study_time, contents, DATE_FORMAT (`indate`, '%Y-%m-%d %H:%i') AS `posted_date` 
   FROM sns_contents 
-  WHERE u_name LIKE :keyword OR restaurantName LIKE :keyword OR contents LIKE :keyword 
+  WHERE u_name LIKE :keyword OR study_theme LIKE :keyword OR contents LIKE :keyword 
   order by indate DESC");
 $search_sql->bindValue(':keyword', "%{$keyword}%");
 $search_status = $search_sql->execute();
@@ -26,8 +26,8 @@ if($search_status==false) {
     $search_result .= "<div class='shadow p-3 mb-5 bg-white rounded'>";
     // 全員表示
     $search_result .= "<span class='fw-bold'>".$result["u_name"]."　</span>";
-    $search_result .= "＜".$result["restaurantName"]."＞　";
-    $search_result .= $result["restaurantCost"]."分　";
+    $search_result .= "＜".$result["study_theme"]."＞　";
+    $search_result .= $result["study_time"]."分　";
     $search_result .= $result["posted_date"];
     $search_result .= "<div class='m-4'>";
     $search_result .= "<p>".$result["contents"]."</p>";

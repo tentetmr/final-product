@@ -44,8 +44,8 @@
           ?>
             <!-- 投稿フォーム -->
             <form method="POST" action="insert.php" class="post">
-              <div><input type="text" name="restaurantName" placeholder="何をした？" class="form-control mx-auto mb-1" style="width: 90%;"></div>
-              <div><input type="number" name="restaurantCost" min="1" placeholder="何分できた？" class="form-control mx-auto mb-1" style="width: 90%;"></div>
+              <div><input type="text" name="study_theme" placeholder="何をした？" class="form-control mx-auto mb-1" style="width: 90%;"></div>
+              <div><input type="number" name="study_time" min="1" placeholder="何分できた？" class="form-control mx-auto mb-1" style="width: 90%;"></div>
               <div><textarea name="contents" id="" cols="30" rows="5" placeholder="内容・学び" class="form-control mx-auto mb-3" style="width: 90%;"></textarea></div>
               <input type="submit" value="投稿" class="btn btn-success" style="width: 70%;">
             </form>
@@ -86,7 +86,7 @@
               </nav>
             <!-- 検索表示 -->
             <?php } else{?>
-              <div class="h6">[検索結果]</div>
+            <div class="h6">[検索結果]</div>
             <?php
               include("select_search.php");
               echo $search_result;

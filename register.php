@@ -1,14 +1,6 @@
 <?php
 include("funcs.php");
 
-// if(
-//   !isset($_POST["u_name"]) || $_POST["u_name"]==""||
-//   !isset($_POST["lid"]) || $_POST["lid"]==""||
-//   !isset($_POST["lpw"]) || $_POST["lpw"]==""
-// ){
-//   exit('ParamError');
-// }
-
 $u_name = $_POST["u_name"];
 $lid    = $_POST["lid"];
 $lpw    = $_POST["lpw"];

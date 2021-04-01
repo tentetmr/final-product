@@ -30,11 +30,11 @@
     
 
       <div class="heading h2 mb-3">Login</div>
-          <?php if(isset($_GET["error"])) {?>
-            <div class="alert alert-danger mx-auto" role="alert" style="width: 50%;">
-              <?php echo $_GET["error"]; ?>
-            </div>
-          <?php }?>
+      <?php if(isset($_GET["error"])) {?>
+      <div class="alert alert-danger mx-auto" role="alert" style="width: 50%;">
+        <?php echo $_GET["error"]; ?>
+      </div>
+      <?php }?>
       
       <div class="loginForm">
         <form method="post" action="login_act.php" class="post">
@@ -50,9 +50,7 @@
         <p class="heading h2 mb-3">Register</p>
         <?php if(isset($_GET["error_register"])) {?>
           <div class="alert alert-danger mx-auto" role="alert" style="width: 50%;">
-          <?php
-            echo $_GET["error_register"];
-          ?>
+            <?php echo $_GET["error_register"];?>
           </div>
         <?php }?>
         <form method="post" action="register.php" class="post">

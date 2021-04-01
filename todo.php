@@ -41,11 +41,6 @@
 <!DOCTYPE HTML>
 <html lang="ja">
 <head>
-    <style>
-      input {
-        width: 80%;
-      }
-    </style>
 </head>
 
 <body class="container">

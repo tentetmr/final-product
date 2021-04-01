@@ -24,15 +24,14 @@ $page = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1
 $paginationStart = ($page - 1) * $limit;
 
 // Limit query
-$stmt = $pdo->prepare("SELECT id, u_name, restaurantName, restaurantCost, contents, DATE_FORMAT (`indate`, '%Y-%m-%d %H:%i') AS `posted_date` FROM sns_contents order by indate DESC LIMIT $paginationStart, $limit");
+$stmt = $pdo->prepare("SELECT id, u_name, study_theme, study_time, contents, DATE_FORMAT (`indate`, '%Y-%m-%d %H:%i') AS `posted_date` FROM sns_contents order by indate DESC LIMIT $paginationStart, $limit");
 
 
 
-// $stmt = $pdo->prepare("SELECT id, u_name, restaurantName, restaurantCost, contents, DATE_FORMAT (`indate`, '%Y-%m-%d %H:%i') AS `posted_date` FROM sns_contents order by indate DESC");
 $status = $stmt->execute();
 
 $graphdata = $pdo->prepare(
-  "SELECT `u_name` AS `id`, DATE_FORMAT (`indate`, '%Y-%m-%d') AS `time`, SUM(`restaurantCost`) AS `sum` FROM `sns_contents` WHERE u_name = '$user_name' AND (`indate` BETWEEN DATE_SUB(curdate(), interval 10 day) AND DATE_ADD(curdate(), interval 1 day)) GROUP BY DATE_FORMAT(`indate`, '%Y-%m-%d')"
+  "SELECT `u_name` AS `id`, DATE_FORMAT (`indate`, '%Y-%m-%d') AS `time`, SUM(`study_time`) AS `sum` FROM `sns_contents` WHERE u_name = '$user_name' AND (`indate` BETWEEN DATE_SUB(curdate(), interval 10 day) AND DATE_ADD(curdate(), interval 1 day)) GROUP BY DATE_FORMAT(`indate`, '%Y-%m-%d')"
 );
 $statusdata = $graphdata->execute();
 
@@ -52,8 +51,8 @@ if($status==false) {
     $view .= "<div class='shadow p-3 mb-5 bg-white rounded'>";
     // 全員表示
     $view .= "<span class='fw-bold'>".$result["u_name"]."　</span>";
-    $view .= "＜".$result["restaurantName"]."＞　";
-    $view .= $result["restaurantCost"]."分　";
+    $view .= "＜".$result["study_theme"]."＞　";
+    $view .= $result["study_time"]."分　";
     $view .= $result["posted_date"];
     $view .= "<div class='m-4'>";
     $view .= "<p>".$result["contents"]."</p>";

@@ -15,9 +15,7 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            おすすめリンク
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">おすすめリンク</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=sjkrrmBnpGE&t=224s">アンビエントミュージック</a></li>
             <li><a class="dropdown-item" href="https://www.amazon.co.jp/dp/B0732RRCWX/ref=cm_sw_r_tw_dp_6H62F7X861RKMGYM36V2">おすすめ書籍</a></li>

@@ -3,18 +3,16 @@ include("funcs.php");
 $pdo =  db_connect();
 
 $id = $_POST["id"];
-$restaurantName = $_POST["restaurantName"];
-$restaurantCost = $_POST["restaurantCost"];
+$study_theme = $_POST["study_theme"];
+$study_time = $_POST["study_time"];
 $contents = $_POST["contents"];
-// $updatedSysdate = $_POST["updatedSysdate"];
 
-$sql = 'UPDATE sns_contents SET restaurantName=:restaurantName, restaurantCost=:restaurantCost, contents=:contents WHERE id=:id';
+$sql = 'UPDATE sns_contents SET study_theme=:study_theme, study_time=:study_time, contents=:contents WHERE id=:id';
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':restaurantName', $restaurantName, PDO::PARAM_STR);
-$stmt->bindValue(':restaurantCost', $restaurantCost, PDO::PARAM_INT);
-$stmt->bindValue(':contents',       $contents,       PDO::PARAM_STR);
-$stmt->bindValue(':id',             $id,             PDO::PARAM_INT);
-// $stmt->bindValue(':updatedSysdate', $updatedSysdate);
+$stmt->bindValue(':study_theme', $study_theme, PDO::PARAM_STR);
+$stmt->bindValue(':study_time',  $study_time,  PDO::PARAM_INT);
+$stmt->bindValue(':contents',    $contents,    PDO::PARAM_STR);
+$stmt->bindValue(':id',          $id,          PDO::PARAM_INT);
 $status = $stmt->execute();
 
 if($status==false){
